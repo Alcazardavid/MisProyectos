@@ -46,7 +46,7 @@ public class ControladorProveedores implements ActionListener{
  
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(this.carrito.jButtonGuardar == ae.getSource()){
+        if(this.carrito.jButtonCrear == ae.getSource()){
             crear();
         }else if(this.carrito.jButtonActualizar == ae.getSource()){
             actualizar();

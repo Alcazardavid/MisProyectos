@@ -9,12 +9,25 @@ public class Productos {
     
     private int id;
     private String nom_prod;
-    private String nom_prov;
+    private int nom_prov;
+    private int id_categoria;
     private String descrip;
     private float precioTotal;
     private int cantidad;
     private float PrecioUnitario;
+
+    public Productos(int id, String nom_prod, int nom_prov, int id_categoria, String descrip, int cantidad, float PrecioUnitario) {
+        this.id = id;
+        this.nom_prod = nom_prod;
+        this.nom_prov = nom_prov;
+        this.id_categoria = id_categoria;
+        this.descrip = descrip;
+        this.cantidad = cantidad;
+        this.PrecioUnitario = PrecioUnitario;
+    }
         
+    
+    
 //    public Productos(String nom_prod, String nom_prov, String descrip, float precio, int cantidad) {
 //        this.nom_prod = nom_prod;
 //        this.nom_prov = nom_prov;
@@ -23,7 +36,7 @@ public class Productos {
 //        this.cantidad = cantidad;
 //    }
 
-    public Productos(int id, String nom_prod, String nom_prov, String descrip, float precioTotal, int cantidad) {
+    public Productos(int id, String nom_prod, int nom_prov, String descrip, float precioTotal, int cantidad) {
         this.id = id;
         this.nom_prod = nom_prod;
         this.nom_prov = nom_prov;
@@ -40,6 +53,15 @@ public class Productos {
         this.cantidad = cantidad;
         this.precioTotal = PrecioUnitario * cantidad;
     }
+
+    public int getId_categoria() {
+        return id_categoria;
+    }
+
+    public void setId_categoria(int id_categoria) {
+        this.id_categoria = id_categoria;
+    }
+    
 
     public int getId() {
         return id;
@@ -58,11 +80,11 @@ public class Productos {
         this.nom_prod = nom_prod;
     }
 
-    public String getNom_prov() {
+    public int getNom_prov() {
         return nom_prov;
     }
 
-    public void setNom_prov(String nom_prov) {
+    public void setNom_prov(int nom_prov) {
         this.nom_prov = nom_prov;
     }
 

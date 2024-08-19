@@ -25,26 +25,6 @@ public class ProveedoresDao extends ConexionBD {
         }
         return datos;
     }
-    public ArrayList<Integer> obtenerIdsProductosPorMarca(String nombreMarca) {
-    ArrayList<Integer> idsProductos = new ArrayList<>();
-    String sql = "SELECT id_producto FROM productos WHERE id_provee = (SELECT id_provee FROM proveedores WHERE nom_pro = ?)";
-    
-    try (Connection conexion = establecerConexion();
-         PreparedStatement statement = conexion.prepareStatement(sql)) {
-        
-        statement.setString(1, nombreMarca);
-        ResultSet resultSet = statement.executeQuery();
-        
-        while (resultSet.next()) {
-            idsProductos.add(resultSet.getInt("id_producto"));
-        }
-        
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-    
-    return idsProductos;
-}
 
 
     public void agregar(Proveedores proveedor) {

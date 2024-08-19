@@ -6,8 +6,10 @@ package View;
 
 import Controlador.ControladorCarrito;
 import Controlador.ControladorCliente;
+import Controlador.ControladorProductos;
 import Controlador.ControladorProveedores;
 import Controlador.ControladorReportes;
+import Modelo.CRUD.ProductoDao;
 import Modelo.CRUD.ProveedoresDao;
 import Modelo.CRUD.crudVentas;
 import Modelo.CrudCliente;
@@ -26,6 +28,7 @@ public class VistaCarrito extends javax.swing.JFrame {
     ControladorProveedores provee;
     ControladorCliente cliente;
     ControladorReportes reporte;
+    ControladorProductos productos;
     
     public VistaCarrito() {
         initComponents();
@@ -33,6 +36,7 @@ public class VistaCarrito extends javax.swing.JFrame {
         provee = new ControladorProveedores(this, new ProveedoresDao());
         cliente = new ControladorCliente(this, new CrudCliente()) ; 
         reporte = new ControladorReportes(this, new crudVentas());
+        productos = new ControladorProductos(this, new ProductoDao());
     }
 
     /**
@@ -45,6 +49,7 @@ public class VistaCarrito extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jTextNombre = new javax.swing.JTextField();
@@ -85,6 +90,9 @@ public class VistaCarrito extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox<>();
         jTextField1nom = new javax.swing.JTextField();
         jTextField2tele = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -171,13 +179,13 @@ public class VistaCarrito extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonSemanal.setText("SEMANAL");
-        jPanel3.add(jButtonSemanal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 103, 38));
+        jPanel3.add(jButtonSemanal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 103, 38));
 
         jButtonQuincenal.setText("QUINCENAL");
-        jPanel3.add(jButtonQuincenal, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, 38));
+        jPanel3.add(jButtonQuincenal, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 120, 38));
 
         jButtonMensual.setText("MENSUAL");
-        jPanel3.add(jButtonMensual, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, 114, 30));
+        jPanel3.add(jButtonMensual, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, 114, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -192,37 +200,45 @@ public class VistaCarrito extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTable1);
 
-        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 686, 260));
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 686, 260));
 
         jTabbedPane1.addTab("REPORTES", jPanel3);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(jTextIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 170, 39));
+        jPanel2.add(jTextIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 170, 39));
 
         jTextCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextCantidadActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 160, 36));
+        jPanel2.add(jTextCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 160, 36));
 
-        jButtonActualizar.setText("ACTUALIZAR");
-        jPanel2.add(jButtonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, 40));
+        jButtonActualizar.setText("ACTUALIZAR PROVEEDOR");
+        jPanel2.add(jButtonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 210, 40));
 
         jButtonCrear.setText("CREAR NUEVO PROVEEDOR");
-        jPanel2.add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, -1, 37));
+        jPanel2.add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 37));
 
-        jButtonEliminar.setText("ELIMINAR");
-        jPanel2.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 100, 40));
+        jButtonEliminar.setText("ELIMINAR PROVEEDOR");
+        jPanel2.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 210, 40));
 
         jButtonGuardar.setText("GUARDAR");
-        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 112, 47));
+        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 250, 112, 47));
 
-        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 220, 40));
-        jPanel2.add(jTextField1nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 170, 40));
-        jPanel2.add(jTextField2tele, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 170, 40));
+        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 220, 40));
+        jPanel2.add(jTextField1nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 170, 40));
+        jPanel2.add(jTextField2tele, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 140, 170, 40));
 
         jTabbedPane1.addTab("PROVEEDORES", jPanel2);
+
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel5.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 170, 40));
+
+        jPanel5.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 160, 40));
+
+        jTabbedPane1.addTab("PRODUCTOS", jPanel5);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 460));
 
@@ -290,13 +306,17 @@ public class VistaCarrito extends javax.swing.JFrame {
     public javax.swing.JButton jButtonQuincenal;
     public javax.swing.JButton jButtonSemanal;
     public javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JComboBox<String> jComboBox2;
     public javax.swing.JComboBox<String> jComboBox3;
+    public javax.swing.JComboBox<String> jComboBox4;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
